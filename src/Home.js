@@ -1,24 +1,11 @@
-import { useEffect, useState } from 'react';
 import BlogList from './BlogList';
+import useFetch from './useFetch';
 const Home = () => {
-
-    const [blogs, setBlogs] = useState(null);
-
-    /**
-     * use effect hook is where we wanna fetch the data(typicly from db throu api endpoint)
-     */
-    useEffect((e) => {
-        fetch('http://localhost:8000/blogs').then(res => {
-            return res.json()
-        }).then(data => {
-            setBlogs(data);
-            console.log(data);
-        })
-        console.log("use effect run");
-    }, []);// empty array will make sure the useEffekt hook is running only once, on  the first render
-
+    const { data: blogs, isPending: isPending, error: error } = useFetch('http://localhost:8000/blogs');
     return (
         <div className="home">
+            {isPending && <div>Loading...</div>}
+            {error && <div>{error}</div>}
             {blogs && <BlogList blogs={blogs} title="All blogs!" />}
         </div >
     );
