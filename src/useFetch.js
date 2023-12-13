@@ -37,7 +37,7 @@ const useFetch = (url) => {
             }
         };
 
-        const timeoutId = setTimeout(() => fetchData(), 1000);
+        const timeoutId = setTimeout(() => fetchData(), 5000);
 
         return () => {
             setCleanup(true);

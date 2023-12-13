@@ -109,3 +109,21 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.blog-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.blog-info {
+  flex-grow: 1;
+}
+
+.preview-bin {
+  cursor: pointer;
+  /* Add this to indicate that it's clickable */
+}
